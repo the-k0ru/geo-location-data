@@ -1,4 +1,6 @@
 from setuptools import setup, find_packages
+from pip._internal import main as pipmain
+from requirements import req_array
 
 with open('README.rst') as f:
     readme = f.read()
@@ -17,3 +19,7 @@ setup(
     license = license,
     packages = find_packages(exclude=('tests', 'docs'))
 )
+
+# Install required packages
+for i in req_array:
+    pipmain(['install', i])

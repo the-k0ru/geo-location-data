@@ -1,0 +1,1 @@
+req_array = ["geocoder", "pillow"]
