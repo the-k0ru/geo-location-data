@@ -7,13 +7,14 @@ from tkinter import messagebox
 from PIL import Image
 from PIL import ImageTk
 
-from sample import pressed
+import project.pressed
 
 assets_path = "./assets/"
 
 class UI(tk.Frame):
     def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
+        super(UI, self).__init__()
+        #tk.Frame.__init__(self, parent)
 
         parent.title("geo-location-data")
         parent.geometry("800x600")
@@ -36,9 +37,9 @@ class UI(tk.Frame):
         button_normal_img_r_open = Image.open(assets_path + "resized_button_normal.png")
         button_normal_img_r_open = ImageTk.PhotoImage(button_normal_img_r_open)
 
-        pressed.Pressed().button_press()
+        project.pressed.Pressed().button_press() # pylint: disable=no-member
 
-        ##class_pressed.button_press()
+        #class_pressed.button_press()
 
         # ADD COMMAND #
         py_button = tk.Button(parent, font=("Helvetica", 12), width=16, height=16, image=button_normal_img_r_open)
